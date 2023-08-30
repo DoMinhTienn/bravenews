@@ -31,6 +31,7 @@ const routes = [
         path: '/register',
         component: register,
         name: 'Register',
+        beforeEnter: isAuth,
     }
 ];
 

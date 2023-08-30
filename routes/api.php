@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,5 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('register', 'register');
     Route::post('logout', 'logout');
 });
+
+Route::resource('categories', CategoryController::class);
