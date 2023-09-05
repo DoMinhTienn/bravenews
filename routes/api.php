@@ -23,6 +23,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');
     Route::post('register', 'register');
     Route::post('logout', 'logout');
+    Route::post('upload-avatar', 'uploadAvatar');
 });
 
 Route::resource('categories', CategoryController::class);

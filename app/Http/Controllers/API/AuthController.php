@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class AuthController extends Controller
 {
@@ -45,7 +46,8 @@ class AuthController extends Controller
             'name' => $request->name,
             'username' => $request->username,
             'password' => Hash::make($request->password),
-            'userrole' => 0,
+            'role' => 0,
+            'avatar_path' => null,
         ]);
 
         return response()->json([
@@ -70,6 +72,22 @@ class AuthController extends Controller
                 'token' => Auth::refresh(),
                 'type' => 'bearer',
             ]
+        ]);
+    }
+
+    public function uploadAvatar(Request $request){
+        if(! $request->hasFile('file')){
+            return response()->json([
+                'message' => 'File is required'
+            ]);
+        }
+        $response = cloudinary()->upload($request->file('file')->getRealPath())->getSecurePath();
+        $user = Auth::user();
+        $user->update([
+            'avatar_path' => $response
+        ]);
+        return response()->json([
+            'message' => 'upload successfully',
         ]);
     }
 }
