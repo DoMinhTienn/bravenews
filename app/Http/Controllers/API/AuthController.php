@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Laravolt\Avatar\Avatar;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class AuthController extends Controller
@@ -41,13 +42,22 @@ class AuthController extends Controller
             'username' => 'required|string|max:255|unique:users',
             'password' => 'required|string|min:8',
         ]);
+        $avatar = new Avatar;
+        $avatarSvg = $avatar->create($request->name)->toSvg();
+        
+        $response = Cloudinary::upload('data:image/svg+xml,' . $avatarSvg, [
+            'public_id' => $request->username,
+            'resource_type' => 'image', // Chọn kiểu tài nguyên là ảnh
+        ])->getSecurePath();
+
+        // $response = cloudinary()->upload($request->file($avatarBase64)->getRealPath())->getSecurePath();
 
         $user = User::create([
             'name' => $request->name,
             'username' => $request->username,
             'password' => Hash::make($request->password),
             'role' => 0,
-            'avatar_path' => null,
+            'avatar_path' => $response,
         ]);
 
         return response()->json([
@@ -81,13 +91,20 @@ class AuthController extends Controller
                 'message' => 'File is required'
             ]);
         }
-        $response = cloudinary()->upload($request->file('file')->getRealPath())->getSecurePath();
         $user = Auth::user();
-        $user->update([
-            'avatar_path' => $response
-        ]);
+        $username = $user->username;
+        $response = cloudinary()->upload($request->file('file')->getRealPath(), [
+            'public_id' => $username,
+        ])->getSecurePath();
+        
+        $user->avatar_path = $response;
+        $user->save();
         return response()->json([
             'message' => 'upload successfully',
         ]);
+    }
+
+    public function update(Request $request){
+        
     }
 }

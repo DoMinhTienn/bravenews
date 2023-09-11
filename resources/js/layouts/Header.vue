@@ -15,7 +15,10 @@
                     <RouterLink to="/login"><font-awesome-icon icon="fa-regular fa-user" /></RouterLink>
                 </div>
                 <div v-else class="header-account col-6 col-sm-4 col-lg-7">
-                    <div class="dropdown" @click="toggleDropdown"><font-awesome-icon icon="fa-regular fa-user" />
+                    <div class="dropdown" @click="toggleDropdown">
+                        
+                        <img :src="authStore.user.avatar_path" />
+                        <span>{{ authStore.user.name }}</span>
                         <font-awesome-icon :icon="['fas', 'chevron-down']" /></div>
                 </div>
             </div>

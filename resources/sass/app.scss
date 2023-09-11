@@ -7,36 +7,36 @@ input:focus {
 @media (min-width: 1200px) {
     .header {
         background: #005591;
-    
+
         .header-row {
             height: 64px;
             display: flex;
-            
-            .logo{
+
+            .logo {
                 height: 100%;
             }
-    
+
             .header-image {
                 height: 100%;
             }
-    
+
             .header-search {
                 position: relative;
-    
+
                 form {
                     display: flex;
                     align-items: center;
                     height: 100%;
-    
+
                 }
-    
+
                 .search-input {
                     width: 100%;
                     padding: 6px 16px;
                     border: none;
                     border-radius: 20px;
                 }
-    
+
                 .search-button {
                     padding: 16px;
                     background: none;
@@ -45,58 +45,77 @@ input:focus {
                     right: 0;
                 }
             }
-    
+
             .header-account {
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
-    
+
                 a {
                     padding: 10px;
                     color: white;
                     border-radius: 5px;
                     background: rgba(255, 255, 255, .2);
                 }
-    
+
+
                 .dropdown {
                     cursor: pointer;
-                    padding: 10px;
+                    padding: 6px;
                     border-radius: 5px;
                     background: rgba(255, 255, 255, .2);
                     margin-left: 10px;
                     color: white;
+
+                    img {
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        border: 1px solid gray;
+                    }
+
+                    span {
+                        margin: 0px 8px;
+                    }
+
                 }
-    
+
             }
         }
-    
-        .dropdown_menu{
+
+        .dropdown_menu {
             position: absolute;
             top: 60px;
-            right: 220px;
-            background: #eee;
+            right: 265px;
+            background: rgba(238, 238, 238);
             border-radius: 5px;
-    
+
             ul {
                 list-style-type: none;
                 padding: 12px 0;
                 margin: 0;
+                li:hover{
+                    background: rgb(199, 198, 198);
+                }
             }
-    
+
             .dropdown_item {
                 cursor: pointer;
                 padding: 12px 24px;
-    
+
                 button {
+                    background: transparent;
                     border: none;
+
                     svg {
                         margin-right: 20px;
                     }
                 }
+
                 a {
                     color: black;
                     text-decoration: none;
-    
+
                     svg {
                         margin-right: 20px;
                     }
@@ -104,36 +123,36 @@ input:focus {
             }
         }
     }
-    
-    
+
+
     .login-container {
         display: flex;
         justify-content: center;
-    
+
         .form-login {
             width: 40%;
             background: #f0f0f0;
             padding: 30px;
             border-radius: 6px;
             margin-top: 10px;
-    
+
             .form-content-title {
                 font-size: 24px;
                 font-weight: 600;
                 color: #005591;
                 text-align: center;
             }
-    
+
             .form-content {
                 form {
                     margin-top: 30px;
-    
+
                     .field {
                         position: relative;
                         height: 40px;
                         width: 100%;
                         margin-top: 20px;
-    
+
                         .eye-icon {
                             position: absolute;
                             top: 50%;
@@ -144,124 +163,148 @@ input:focus {
                             cursor: pointer;
                             padding: 5px;
                         }
-            
+
                         input {
                             padding: 0 15px;
                             border: 1px solid #CACACA;
                         }
-            
                         input:focus {
                             border-bottom-width: 2px;
                         }
-    
-                        input, button {
+
+                        input,
+                        button {
                             height: 100%;
                             width: 100%;
                             font-size: 16px;
                             font-weight: 400;
                             border-radius: 6px;
                         }
-    
+
                         button {
                             color: white;
                             background: #005591;
                             border: none;
                         }
-            
+
                     }
                 }
-    
+
                 .form-link {
                     text-align: center;
                     margin-top: 10px;
                     font-size: 14px;
                     font-weight: 400;
-    
+
                     a {
                         color: #005591;
                         text-decoration: none;
                     }
-    
+
                     a:hover {
                         text-decoration: underline;
                     }
                 }
+
+                .eror-message {
+                    font: 600 16px red;
+                    margin: 10px 0;
+                    text-align: center;
+                }
             }
-    
-            
+
+
         }
     }
 }
-@media (max-width: 768px) {
-    
-}
+
+@media (max-width: 768px) {}
 
 @media (max-width: 480px) {
     .header {
-       
-        .container{
+
+        .container {
             background: #005591;
         }
+
         .header-row {
-            
+
             height: 64px;
             display: flex;
-            
-            .logo{
+
+            .logo {
                 height: 100%;
             }
-    
+
             .header-image {
                 height: 100%;
             }
-    
+
             .header-search {
                 display: none;
             }
-    
+
             .header-account {
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
-    
+
                 a {
                     padding: 10px;
                     color: white;
                     border-radius: 5px;
                     background: rgba(255, 255, 255, .2);
                 }
-    
+
                 .dropdown {
                     margin-left: 10px;
                     color: white;
+
+                    
+                    img {
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        border: 1px solid gray;
+                    }
+                    svg {
+                        display: none;
+                    }
+
+                    span {
+                        display: none;
+                    }
                 }
             }
         }
-        .dropdown_menu{
+
+        .dropdown_menu {
             position: relative;
             background: #eee;
             border-radius: 5px;
-    
+
             ul {
                 list-style-type: none;
                 padding: 12px 0;
                 margin: 0;
             }
-    
+
             .dropdown_item {
                 cursor: pointer;
                 padding: 12px 24px;
-    
+
                 button {
                     border: none;
+
                     svg {
                         margin-right: 20px;
                     }
                 }
+
                 a {
                     color: black;
                     text-decoration: none;
-    
+
                     svg {
                         margin-right: 20px;
                     }
@@ -269,35 +312,36 @@ input:focus {
             }
         }
     }
+
     .login-container {
 
         display: flex;
         justify-content: center;
-    
+
         .form-login {
             width: 100%;
             background: #f0f0f0;
             padding: 30px;
             border-radius: 6px;
             margin-top: 10px;
-    
+
             .form-content-title {
                 font-size: 24px;
                 font-weight: 600;
                 color: #005591;
                 text-align: center;
             }
-    
+
             .form-content {
                 form {
                     margin-top: 30px;
-    
+
                     .field {
                         position: relative;
                         height: 40px;
                         width: 100%;
                         margin-top: 20px;
-    
+
                         .eye-icon {
                             position: absolute;
                             top: 50%;
@@ -308,59 +352,51 @@ input:focus {
                             cursor: pointer;
                             padding: 5px;
                         }
-            
+
                         input {
                             padding: 0 15px;
                             border: 1px solid #CACACA;
                         }
-            
+
                         input:focus {
                             border-bottom-width: 2px;
                         }
-    
-                        input, button {
+                        input,
+                        button {
                             height: 100%;
                             width: 100%;
                             font-size: 16px;
                             font-weight: 400;
                             border-radius: 6px;
                         }
-    
+
                         button {
                             color: white;
                             background: #005591;
                             border: none;
                         }
-            
+
                     }
                 }
-    
+
                 .form-link {
                     text-align: center;
                     margin-top: 10px;
                     font-size: 14px;
                     font-weight: 400;
-    
+
                     a {
                         color: #005591;
                         text-decoration: none;
                     }
-    
+
                     a:hover {
                         text-decoration: underline;
                     }
                 }
             }
-    
-            
+
+
         }
     }
 }
-
-
-
-
-
-
-
-

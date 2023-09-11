@@ -8,7 +8,6 @@ import { createPinia } from 'pinia'
 import { createApp } from 'vue';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
-import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.js'
 import router from './router.js';
 import App from './layouts/App.vue'
 import './../sass/app.scss'
@@ -22,7 +21,6 @@ import { faSearch, faChevronDown, faGear, faArrowRightFromBracket} from '@fortaw
 library.add(faUser, faSearch, faEye, faChevronDown, faCircleUser, faGear, faArrowRightFromBracket, faEyeSlash)
 const app = createApp(App)
     .component('font-awesome-icon', FontAwesomeIcon)
-    .use(bootstrap)
     .use(router)
     .use(createPinia())
 

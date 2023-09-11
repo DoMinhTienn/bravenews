@@ -10,6 +10,4 @@ import axios from '../axios';
 
 const authStore = useAuthStore()
 
-
-
-</script>
+</script> 
